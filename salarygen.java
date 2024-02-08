@@ -50,6 +50,7 @@ public class salarygen {
         grossSal = grossSal - tax;
         double pf = basicSal * (0.1);
         grossSal = grossSal - pf;
+        
 
         System.out.println("------Employee Salary Slip------");
         System.out.println("ID: " + id);
