@@ -10,11 +10,39 @@
  *      sal > 10 = 20%
  * 
  */
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
 
- import java.util.Scanner;
+import javax.swing.text.DateFormatter;
 public class salarygen {
+    static Locale locale;
+
+    static String salFormat(double sal){
+
+        NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+        String temp = nf.format(sal);
+        return temp;
+
+    }
+
+    static void printDate(){
+        Date dt = new Date();
+        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, locale);
+        String temp = df.format(dt);
+
+        System.out.println("The current date is : " + temp);
+    }
+
+    static void loadBundle(){
+        
+    }
 
     public static void main(String[] args) {
+        
+        
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter User Name: ");
@@ -25,6 +53,19 @@ public class salarygen {
         
         System.out.print("Enter User Basic Salary: ");
         double basicSal = sc.nextFloat();
+
+        System.out.println("Press 1 for English\nPress 2 for Hindi");
+        int ch = sc.nextInt();
+
+        if(ch == 1){
+            locale = new Locale("en", "US");
+        }else if(ch == 2){
+            locale = new Locale("hi", "in");
+        }else{
+            locale = new Locale("en", "US");
+        }
+        
+ 
         
 
         double hra, ta, da, ma, tax=0;
@@ -53,18 +94,22 @@ public class salarygen {
         
 
         System.out.println("------Employee Salary Slip------");
+        printDate();
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
-        System.out.println("Basic Salary: " + basicSal);
-        System.out.println("HRA = " + hra);
-        System.out.println("TA = " + ta);
-        System.out.println("DA = " + da);
-        System.out.println("MA = " + ma);
-        System.out.println("PF = "+pf);
-        System.out.println("TAX = " + tax); 
+        System.out.println("Basic Salary: " + salFormat(basicSal));
+        System.out.println("HRA = " + salFormat(hra));
+        System.out.println("TA = " + salFormat(ta));
+        System.out.println("DA = " + salFormat(da));
+        System.out.println("MA = " + salFormat(da));
+        System.out.println("PF = "+ salFormat(pf));
+        System.out.println("TAX = " + salFormat(tax)); 
 
-        System.out.println("\n Gross Salary = " + grossSal);
+        System.out.println("\n Gross Salary = " + salFormat(grossSal));
 
     }
-    
-}
+
+    // void static printData(){
+
+    }
+     
