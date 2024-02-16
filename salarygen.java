@@ -36,13 +36,8 @@ public class salarygen {
         System.out.println("The current date is : " + temp);
     }
 
-    static void loadBundle(){
-        
-    }
+    static void input(){
 
-    public static void main(String[] args) {
-        
-        
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter User Name: ");
@@ -63,10 +58,13 @@ public class salarygen {
             locale = new Locale("hi", "in");
         }else{
             locale = new Locale("en", "US");
-        }
+        }   
         
- 
-        
+        calculate(id, name, basicSal);
+
+    }
+
+    static void calculate(int id, String name, double basicSal){
 
         double hra, ta, da, ma, tax=0;
 
@@ -91,21 +89,36 @@ public class salarygen {
         grossSal = grossSal - tax;
         double pf = basicSal * (0.1);
         grossSal = grossSal - pf;
-        
 
-        System.out.println("------Employee Salary Slip------");
+        print(id, name, basicSal, hra, ta, da, ma, pf, tax, grossSal);
+
+
+    }
+
+    static void print(int id, String name, double basicSal, double hra, double ta, double da, double ma, double pf, double tax, double grossSal){
+
+        System.out.println("\n\n------Employee Salary Slip------");
         printDate();
+        
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
+        
         System.out.println("Basic Salary: " + salFormat(basicSal));
-        System.out.println("HRA = " + salFormat(hra));
-        System.out.println("TA = " + salFormat(ta));
+        System.out.println("Increment\t\t\tDecrement");
+        System.out.println("HRA = " + salFormat(hra) + "\t\t\t"+"TAX = " + salFormat(tax));
+        System.out.println("TA = " + salFormat(ta) + "\t\t\t" + "PF = "+ salFormat(pf));
         System.out.println("DA = " + salFormat(da));
-        System.out.println("MA = " + salFormat(da));
-        System.out.println("PF = "+ salFormat(pf));
-        System.out.println("TAX = " + salFormat(tax)); 
+        System.out.println("MA = " + salFormat(ma));
+        System.out.println();
+        System.out.println(); 
 
-        System.out.println("\n Gross Salary = " + salFormat(grossSal));
+        System.out.println("\nGross Salary = " + salFormat(grossSal));
+
+    }
+
+    public static void main(String[] args) {
+        
+        input();
 
     }
 
