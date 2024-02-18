@@ -16,7 +16,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
-import javax.swing.text.DateFormatter;
 public class salarygen {
     static Locale locale;
 
@@ -59,6 +58,8 @@ public class salarygen {
         }else{
             locale = new Locale("en", "US");
         }   
+
+        sc.close();
         
         calculate(id, name, basicSal);
 

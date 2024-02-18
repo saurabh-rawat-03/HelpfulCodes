@@ -9,21 +9,13 @@ public class reverse {
 
         String rev = "";
         int temp=num;
-        int d=0;
         while(temp != 0){
             rev = rev + (temp %10);
             temp = temp /10;
-            d++;
-
-
+    
         }
-
-        // for(int i=0; i<d; i++){
-        //     rev = rev + (num %10);
-        //     num = num/10;
-        // }
-
         System.out.println(rev);
+        sc.close();
     }
     
 }

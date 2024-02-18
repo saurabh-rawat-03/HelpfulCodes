@@ -32,6 +32,8 @@ public class sumDigit {
 
         System.out.println("Odd sum: " + oSum);
         System.out.println("Even sum: " + eSum);
+
+        sc.close();
     
     }
     
