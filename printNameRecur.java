@@ -6,13 +6,15 @@ public class printNameRecur {
     }
 
     public static void print(String name, int count){
+        
         if(count == 0){
             System.out.println(count);
             return;
         }
-
-        System.out.println((name));
         print(name, count-1);
+
+
+        System.out.println(name + " " + count);
     }
     
 }
