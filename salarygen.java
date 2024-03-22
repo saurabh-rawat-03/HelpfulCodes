@@ -35,6 +35,7 @@ public class salarygen {
         System.out.println("The current date is : " + temp);
     }
 
+    @SuppressWarnings("deprecation")
     static void input(){
 
         Scanner sc = new Scanner(System.in);
